@@ -90,7 +90,7 @@
                   <li>Canva Premium free for 1 Year</li>
                 </ul><hr>
 
-              <form action="https://api.web3forms.com/submit" method="POST" class="php-email-form">
+              <form id="form" method="POST" class="php-email-form">
                 <input type="hidden" name="access_key" value="db870915-874b-4d37-acd1-c71aa371eb7c">
                 <div class="mb-3">
                   <label for="contactName" class="form-label">Full Name</label>
@@ -168,8 +168,13 @@
                   <label for="contactPayment" class="form-label">Transaction/Payment ID</label>
                   <input type="text" class="form-control" name="Branch Name" id="contactPayment" placeholder="Enter your transaction/payment id" required="">
                 </div>
+                <div class="">
+                  <input type="checkbox" class="" name="Terms & Condition" id="contactTerms" required="">
+                  <label for="contactTerms" class="form-label">Accept Terms & Condition</label>
+                </div>
                 <p><i>After submitting this registration form. You will receive a confirmation mail with further instruction and Whatsapp group link.</i></p>
                 <hr>
+                <div class="mb-2 text-center" id="result"></div>
 
                 <button type="submit" class="submit-btn">
                   <span>Submit Registration Form</span>
@@ -286,6 +291,53 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+
+
+  <script>
+    const form = document.getElementById('form');
+    const result = document.getElementById('result');
+    
+    form.addEventListener('submit', function(e) {
+        const formData = new FormData(form);
+        e.preventDefault();
+    
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+    
+        result.innerHTML = "Please wait..."
+    
+        fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    result.innerHTML = json.message;
+                } else {
+                    console.log(response);
+                    result.innerHTML = json.message;
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                result.innerHTML = "Something went wrong! Please try again.";
+            })
+            .then(function() {
+                form.reset();
+                setTimeout(() => {
+                    result.style.display = "none";
+                }, 3000);
+            });
+    });
+    </script>
+
+
 
 </body>
 
