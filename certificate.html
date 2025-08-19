@@ -208,11 +208,25 @@
       const CertificateID = document.getElementById('CertificateID').value.trim();
       const errorDiv = document.getElementById('errorMsg');
   
-      // if (CertificateID === "RLWD250101") {
-      //   window.location.href = "Certificate/RLWD250101.html";
-      // } else {
-      //   errorDiv.textContent = "Invalid Certificate ID";
-      // }
+      if (CertificateID === "RLWD250101") {
+        window.location.href = "Certificate/RLWD250101.html";
+      } else if (CertificateID === "RLWD250102") {
+        window.location.href = "Certificate/RLWD250102.html";
+      } else if (CertificateID === "RLWD250103") {
+        window.location.href = "Certificate/RLWD250103.html";
+      } else if (CertificateID === "RLWD250104") {
+        window.location.href = "Certificate/RLWD250104.html";
+      } else if (CertificateID === "RLWD250105") {
+        window.location.href = "Certificate/RLWD250105.html";
+      } else if (CertificateID === "RLWD250106") {
+        window.location.href = "Certificate/RLWD250106.html";
+      } else if (CertificateID === "RLWD250107") {
+        window.location.href = "Certificate/RLWD250107.html";
+      } else if (CertificateID === "RLWD250108") {
+        window.location.href = "Certificate/RLWD250108.html";
+      } else {
+        errorDiv.textContent = "Invalid Certificate ID";
+      }
 
 
 
