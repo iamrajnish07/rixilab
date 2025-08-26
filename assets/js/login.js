@@ -12,7 +12,6 @@ import interns from './data.js';
       );
 
       if (intern) {
-        console.log(intern.Path);
         window.location.href = intern.Path;
       }else {
         errorDiv.textContent = "Invalid email or InternID.";
