@@ -499,5 +499,25 @@ export default [
     email: 'ramireddyanjali27@gmail.com',
     InternID: 'RL25020605',
     Path: 'Interns_2502/06_Java_Programming/RL25020605.html'
+  },
+  {
+    email: 'jhaaashishkumar645@gmail.com',
+    InternID: 'RL25020121',
+    Path: 'Interns_2502/01_Web_Development/RL25020121.html'
+  },
+  {
+      email: 'anubhavshukla12369@gmail.com',
+      InternID: 'RL25020122',
+      Path: 'Interns_2502/01_Web_Development/RL25020122.html'
+  },
+  {
+      email: 'hussainobulampalli18@gmail.com',
+      InternID: 'RL25020123',
+      Path: 'Interns_2502/01_Web_Development/RL25020123.html'
+  },
+  {
+      email: 'edlawithuluwork82@gmail.com',
+      InternID: 'RL25020124',
+      Path: 'Interns_2502/01_Web_Development/RL25020124.html'
   }
 ]
