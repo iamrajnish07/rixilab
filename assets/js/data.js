@@ -412,13 +412,13 @@ export default [
   },
   {
     email: 'gorlaguntaakhilesh123@gmail.com',
-    InternID: 'RL25020402',
-    Path: 'Interns_2502/04_Graphics_Designing/RL25020402.html'
+    InternID: 'RL25020606',
+    Path: 'Interns_2502/06_Java_Programming/RL25020606.html'
   },
   {
     email: 'vardhanyadhav32@gmail.com',
-    InternID: 'RL25020403',
-    Path: 'Interns_2502/04_Graphics_Designing/RL25020403.html'
+    InternID: 'RL25020402',
+    Path: 'Interns_2502/04_Graphics_Designing/RL25020402.html'
   },
   {
     email: 'priyanshusaini1414@gmail.com',
@@ -511,14 +511,9 @@ export default [
       Path: 'Interns_2502/01_Web_Development/RL25020122.html'
   },
   {
-      email: 'hussainobulampalli18@gmail.com',
+      email: 'edlawithuluwork82@gmail.com',
       InternID: 'RL25020123',
       Path: 'Interns_2502/01_Web_Development/RL25020123.html'
-  },
-  {
-      email: 'edlawithuluwork82@gmail.com',
-      InternID: 'RL25020124',
-      Path: 'Interns_2502/01_Web_Development/RL25020124.html'
   },
   {
     email:'parthsarathidubey5@gmail.com',
