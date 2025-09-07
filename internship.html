@@ -28,8 +28,10 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/internship.css" rel="stylesheet">
 
 </head>
+
 
 <body class="index-page">
 
@@ -174,10 +176,20 @@
                 </div>
                 <br>
                 <h5>Registration Fee: Rs 199/-(Only online Payment Accepted)</h5>
-                <h5>UPI ID for Payment: <b>9305516673@ptsbi</b></h5>
+                <h5>Click here for payment: <span id="payBtn">Pay Now</span></h5>
+
+                <div id="qrPopup" class="popup">
+                  <div class="popup-content">
+                    <span class="close" id="closeBtn">X</span>
+                    <h3>Scan & Pay</h3>
+                    <img src="./assets/img/QR_Code.png" alt="QR Code">
+                  </div>
+                </div>
+                <p><i> After payment enter your Transaction ID or Payment ID in the box provided below. This helps us verify your payment and confirm your application.</i></p>
+
                 <div class="mb-3">
                   <label for="contactPayment" class="form-label">Transaction/Payment ID</label>
-                  <input type="text" class="form-control" name="data[PayID]" id="contactPayment" placeholder="Enter your transaction/payment id" required="">
+                  <input type="text" class="form-control" name="data[PayID]" id="contactPayment" placeholder="Enter your transaction/payment id" required>
                 </div>
 
                 <div class="">
@@ -194,6 +206,14 @@
                   <span>Submit Registration Form</span>
                   <i class="bi bi-arrow-right"></i>
                 </button>
+                <!-- Popup -->
+                <div class="popup-overlay" id="popup">
+                  <div class="popup-box">
+                    <h3>Application Submitted!</h3>
+                    <p id="popupMsg"></p>
+                    <button onclick="closePopup()">OK</button>
+                  </div>
+                </div>
               </form>
             </div>
           </div>
@@ -306,6 +326,7 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
+  
 
   <script>
         var form = document.getElementById('sheetdb-form');
@@ -317,14 +338,44 @@
             }).then(
                 response => response.json()
             ).then((html) => {
-                alert('Submitted !! 😊 Thank you ' + document.getElementById('contactName').value)
-                window.location.href = '';
-                location.reload();
+                // alert('Submitted !! 😊 Thank you ' + document.getElementById('contactName').value)
+                // window.location.href = '';
+                // location.reload();
+                let userName = document.getElementById("contactName").value.trim();
+                if(userName === "") userName = "User";  // fallback if empty
+                document.getElementById("popupMsg").innerText = "Thank you, " + userName + "!";
+                document.getElementById("popup").style.display = "flex"; // show popup
             });
         });
+        function closePopup() {
+        document.getElementById("popup").style.display = "none";
+        location.reload(); // reload page
+    }
     </script>
 
+    <script>
+      // Get elements
+      const popup = document.getElementById("qrPopup");
+      const payBtn = document.getElementById("payBtn");
+      const closeBtn = document.getElementById("closeBtn");
 
+      // Show popup when Pay Now is clicked
+      payBtn.onclick = function() {
+        popup.style.display = "flex";
+      }
+
+      // Close popup when X is clicked
+      closeBtn.onclick = function() {
+        popup.style.display = "none";
+      }
+
+      // Close popup when clicking outside content
+      window.onclick = function(event) {
+        if (event.target === popup) {
+          popup.style.display = "none";
+        }
+      }
+    </script>
 
   <!-- <script>
     const form = document.getElementById('form');
